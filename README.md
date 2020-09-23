@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="utils/icon.png" alt="icon" width="160" height="160">
+    <img src="data/icon.png" alt="icon" width="160" height="160">
   </a>
   <h3 align="center">Krumelur Discord Bot</h3>
 </p>
