@@ -1,7 +1,8 @@
 <p align="center">
     <img src = "data/icon.png" alt="icon" width="275">
     <img src = "data/terminal.png" alt="icon" width="275">
-    <h1 align = "center">Krumelur</h1>
+</p>
+    <h2 align = "center">Krumelur</h2>
     <div align="center">A discord bot for my personal server</div>
 
 ## About
