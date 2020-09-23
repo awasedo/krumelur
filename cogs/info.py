@@ -6,12 +6,12 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name = "info")
+    @commands.command(name = "info", aliases = ["bot", "botinfo"])
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def info(self, ctx):
         guild_count = len(self.bot.guilds)
 
-        embed = discord.Embed(color = self.bot.embed_color)
+        embed = discord.Embed(title = "Bot Info", color = self.bot.embed_color)
         embed.set_thumbnail(url = self.bot.user.avatar_url)
         embed.set_author(name = f"{self.bot.user.name}")
         embed.add_field(name = "Bot Creator:", value = "eschillus#4840", inline = False)

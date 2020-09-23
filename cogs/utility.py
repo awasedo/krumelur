@@ -21,7 +21,7 @@ class Utility(commands.Cog):
         await ctx.message.delete()
         await ctx.send(message)
 
-    @commands.command(name = "clear")
+    @commands.command(name = "clear", aliases = ["purge", "delete"])
     @commands.has_permissions(manage_messages = True)
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def clear(self, ctx, limit: int):
