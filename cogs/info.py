@@ -6,7 +6,7 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name = "info", aliases = ["bot", "botinfo"])
+    @commands.command(name = "info", aliases = ["botinfo"])
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def info(self, ctx):
         guild_count = len(self.bot.guilds)
