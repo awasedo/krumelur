@@ -24,20 +24,42 @@ class Help(commands.Cog):
             value = f"`{self.bot.command_prefix}help info`")
             await ctx.send(embed = embed)
 
-    @help.command(name = "utility")
+    @help.group(name = "utility")
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def help_utility(self, ctx):
-        utility_embed = discord.Embed(
-        title = "Utility Commands", color = self.bot.embed_color,
-        description = "These are all currently available utility commands, use them without the <>"
-        )
-        utility_embed.add_field(name = "Say",
-        value = f"`{self.bot.command_prefix}say <something>`", inline = False)
-        utility_embed.add_field(name = "Clear",
-        value = f"`{self.bot.command_prefix}clear <amount>`", inline = False)
-        utility_embed.add_field(name = "Add role",
-        value = f"`{self.bot.command_prefix}addrole <rolename>`", inline = False)
-        await ctx.send(embed = utility_embed)
+        if ctx.invoked_subcommand is None:
+            utility_embed = discord.Embed(
+            title = "Utility Commands", color = self.bot.embed_color,
+            description = "These are all currently available utility commands, use them without the <>"
+            )
+            utility_embed.add_field(name = "Say",
+            value = f"`{self.bot.command_prefix}say <something>`", inline = False)
+            utility_embed.add_field(name = "Clear",
+            value = f"`{self.bot.command_prefix}clear <amount>`", inline = False)
+            utility_embed.add_field(name = "Add role",
+            value = f"`{self.bot.command_prefix}addrole <rolename>`", inline = False)
+            await ctx.send(embed = utility_embed)
+        
+    @utility.command(name = "say")
+    async def help_utility_say(self, ctx):
+            utility_say_embed = discord.Embed(
+            title = "Say Command", color = self.bot.embed_color,
+            description = f"This is the say command"
+            )
+    
+    @utility.command(name = "clear")
+    async def help_utility_clear(self, ctx):
+            utility_say_embed = discord.Embed(
+            title = "Clear Command", color = self.bot.embed_color,
+            description = f"This is the clear command"
+            )
+           
+    @utility.command(name = "addrole")
+    async def help_utility_addrole(self, ctx):
+            utility_say_embed = discord.Embed(
+            title = "Addrole Command", color = self.bot.embed_color,
+            description = f"This is the addrole command"
+            )    
 
     @help.command(name = "fun")
     @commands.cooldown(1, 3, commands.BucketType.user)
