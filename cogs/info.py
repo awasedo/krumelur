@@ -6,7 +6,7 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="info", aliases=["botinfo"])
+    @commands.command(name="info", aliases=["botinfo", "krumelur"])
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def info(self, ctx):
         guild_count = len(self.bot.guilds)
@@ -19,7 +19,7 @@ class Info(commands.Cog):
         embed.add_field(name="Bot created:", value=self.bot.user.created_at.strftime("%B %d, %Y"), inline=False)
         await ctx.send(embed=embed)
 
-    @commands.command(name="sourcecode")
+    @commands.command(name="sourcecode", aliases=["src"])
     async def source_code(self, ctx):
         embed = discord.Embed(description="[Click here!](https://github.com/eschillus/krumelur)",
                               color=self.bot.embed_color)
