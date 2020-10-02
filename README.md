@@ -1,6 +1,5 @@
 <p align="center">
-    <img src = "data/icon.png" alt="icon" width="275">
-    <img src = "data/terminal.png" alt="icon" width="275">
+    <img src = "utils/icon.png" alt="icon" width="275">
 </p>
     <h2 align = "center">Krumelur</h2>
     <div align="center">A discord bot for my personal server</div>
@@ -32,4 +31,4 @@ Click [Here](https://discord.com/oauth2/authorize?client_id=711597309124673536&s
 * [Discord.py](https://github.com/Rapptz/discord.py)
 
 ### License
-Krumelur is distributed under the MIT License Read the `LICENSE` file for more information.
+Krumelur is distributed under the MIT License, Read the `LICENSE` file for more information.
