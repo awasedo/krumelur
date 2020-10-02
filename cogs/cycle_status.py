@@ -1,7 +1,6 @@
 import asyncio
-from random import choice
-
 import discord
+from random import choice
 from discord.ext import commands, tasks
 
 
@@ -17,7 +16,7 @@ class CycleStatus(commands.Cog):
             self.bot.statuses = ["", "", ""]
             status = discord.Activity(type=discord.ActivityType.streaming,
                                       url="https://www.twitch.tv/krumelur-discord-bot",
-                                      name=f"{choice(self.bot.statuses)} ?help")
+                                      name=f"{choice(self.bot.statuses)} {self.bot.command_prefix}help")
             await self.bot.change_presence(activity=status)
             await asyncio.sleep(60)
 
