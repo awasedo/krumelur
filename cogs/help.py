@@ -6,7 +6,7 @@ class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.group(name="help", aliases=["h", "krumelur", "bot"])
+    @commands.group(name="help")
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def help(self, ctx):
         if ctx.invoked_subcommand is None:
@@ -25,7 +25,7 @@ class Help(commands.Cog):
                             value=f"`{self.bot.command_prefix}help info`")
             await ctx.send(embed=embed)
 
-    @help.group(name="utility")
+    @help.command(name="utility")
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def help_utility(self, ctx):
         if ctx.invoked_subcommand is None:
@@ -33,6 +33,7 @@ class Help(commands.Cog):
                 title="Utility Commands", color=self.bot.embed_color,
                 description="These are all currently available utility commands, use them without the <>"
             )
+
             utility_embed.add_field(name="Say",
                                     value=f"`{self.bot.command_prefix}say <something>`", inline=False)
             utility_embed.add_field(name="Clear",
@@ -41,27 +42,6 @@ class Help(commands.Cog):
                                     value=f"`{self.bot.command_prefix}addrole <rolename>`", inline=False)
             await ctx.send(embed=utility_embed)
 
-    @utility.command(name="say")
-    async def help_utility_say(self, ctx):
-        utility_say_embed = discord.Embed(
-            title="Say Command", color=self.bot.embed_color,
-            description=f"This is the say command"
-        )
-
-    @utility.command(name="clear")
-    async def help_utility_clear(self, ctx):
-        utility_say_embed = discord.Embed(
-            title="Clear Command", color=self.bot.embed_color,
-            description=f"This is the clear command"
-        )
-
-    @utility.command(name="addrole")
-    async def help_utility_addrole(self, ctx):
-        utility_say_embed = discord.Embed(
-            title="Addrole Command", color=self.bot.embed_color,
-            description=f"This is the addrole command"
-        )
-
     @help.command(name="fun")
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def help_fun(self, ctx):
@@ -69,8 +49,8 @@ class Help(commands.Cog):
             title="Fun Commands", color=self.bot.embed_color,
             description="These are all currently available fun commands, use them without the <>"
         )
-        fun_embed.add_field(name="Random",
-                            value=f"`{self.bot.command_prefix}random <number_1> <number_2>`", inline=False)
+        fun_embed.add_field(name="Random Integer",
+                            value=f"`{self.bot.command_prefix}randint <number_1> <number_2>`", inline=False)
         await ctx.send(embed=fun_embed)
 
     @help.command(name="info")
@@ -97,6 +77,18 @@ class Help(commands.Cog):
         owner_embed.add_field(name="Reload",
                               value=f"`{self.bot.command_prefix}reload <cog>`", inline=False)
         await ctx.send(embed=owner_embed)
+
+    @help.command(name="config")
+    @commands.is_owner()
+    @commands.cooldown(1, 3, commands.BucketType.user)
+    async def help_owner(self, ctx):
+        config_embed = discord.Embed(
+            title="Configuration Commands", color=self.bot.embed_color,
+            description="These are all currently available configuration commands, use them without the <>"
+        )
+        config_embed.add_field(name="Still in",
+                              value=f"`{self.bot.command_prefix}development`", inline=False)
+        await ctx.send(embed=config_embed)
 
 
 def setup(bot):
