@@ -1,0 +1,17 @@
+{
+    "krumelur_token": "AHSDoASOFOSAFugDVFLDL.HVFIEYUGFoIVOHVpH",
+    "krumelur_prefix": "?",
+    "owner_id": "12345678912345",
+
+    "extensions": [
+        "utility",
+        "owner",
+        "fun",
+        "help",
+        "events",
+        "errors",
+        "info",
+        "cycle_status"
+    ]
+
+}
