@@ -1,4 +1,5 @@
 import discord
+import sys
 from discord.ext import commands
 
 
@@ -15,15 +16,18 @@ class Errors(commands.Cog):
         error = getattr(error, "original", error)
 
         if isinstance(error, commands.NoPrivateMessage):
-            embed = discord.Embed(title="This command can not be used here!", color=self.bot.embed_error_color)
+            embed = discord.Embed(title="This command can not be used here!",
+                                  color=self.bot.embed_error_color)
             await ctx.send(embed=embed)
 
         elif isinstance(error, commands.MissingRequiredArgument):
-            embed = discord.Embed(title="This command requires an argument!", color=self.bot.embed_error_color)
+            embed = discord.Embed(title="This command requires an argument!",
+                                  color=self.bot.embed_error_color)
             await ctx.send(embed=embed)
 
         elif isinstance(error, commands.NotOwner):
-            embed = discord.Embed(title=f"You are not the owner of this bot!", color=self.bot.embed_error_color)
+            embed = discord.Embed(title=f"You are not the owner of this bot!",
+                                  color=self.bot.embed_error_color)
             await ctx.send(embed=embed)
 
         elif isinstance(error, commands.CommandOnCooldown):
